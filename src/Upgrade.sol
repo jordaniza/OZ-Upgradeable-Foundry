@@ -53,18 +53,7 @@ contract MyContract is
     }
 }
 
-interface IMyContract2 {
-    function x() external returns (uint256);
-
-    function y() external returns (uint256);
-
-    function setY(uint256 y) external;
-
-    function initialize() external;
-}
-
 contract MyContractV2 is
-    IMyContract2,
     Initializable,
     PausableUpgradeable,
     OwnableUpgradeable,
