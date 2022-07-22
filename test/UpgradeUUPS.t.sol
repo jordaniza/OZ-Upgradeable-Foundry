@@ -4,7 +4,7 @@ pragma solidity 0.8.14;
 import {PRBTest} from "@prb/test/PRBTest.sol";
 import "@std/console.sol";
 
-import "../src/Upgrade.sol";
+import "../src/UpgradeUUPS.sol";
 
 contract _Test is PRBTest {
     MyContract implementationV1;
