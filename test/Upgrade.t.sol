@@ -7,40 +7,38 @@ import "@std/console.sol";
 import "../src/Upgrade.sol";
 
 contract _Test is PRBTest {
-    MyContract test;
+    MyContract implementationV1;
     UUPSProxy proxy;
-    MyContract _contract;
-    MyContractV2 __contract;
+    MyContract wrappedProxyV1;
+    MyContractV2 wrappedProxyV2;
 
     function setUp() public {
-        test = new MyContract();
+        implementationV1 = new MyContract();
         // deploy proxy contract and point it to implementation
 
-        proxy = new UUPSProxy(address(test), "");
+        proxy = new UUPSProxy(address(implementationV1), "");
 
         // wrap in ABI to support easier calls
-        _contract = MyContract(address(proxy));
+        wrappedProxyV1 = MyContract(address(proxy));
+
+        wrappedProxyV1.initialize(100);
+
     }
 
     function testCanInitialize() public {
-        assertEq(_contract.x(), 0);
-        _contract.initialize(100);
-        assertEq(_contract.x(), 100);
+        assertEq(wrappedProxyV1.x(), 100);
     }
 
     function testCanUpgrade() public {
-        MyContractV2 testNew = new MyContractV2();
-
-        _contract.initialize(100);
-
-        _contract.upgradeTo(address(testNew));
+        MyContractV2 implementationV2 = new MyContractV2();
+        wrappedProxyV1.upgradeTo(address(implementationV2));
 
         // re-wrap the proxy
-        __contract = MyContractV2(address(proxy));
+        wrappedProxyV2 = MyContractV2(address(proxy));
 
-        assertEq(__contract.x(), 100);
+        assertEq(wrappedProxyV2.x(), 100);
 
-        __contract.setY(200);
-        assertEq(__contract.y(), 200);
+        wrappedProxyV2.setY(200);
+        assertEq(wrappedProxyV2.y(), 200);
     }
 }
