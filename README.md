@@ -6,7 +6,9 @@ An example of writing and testing an Upgradeable smart contract using the OpenZe
 
 # Deploying
 ```sh
-forge script Deploy
+# this runs the deploy script on a local network, to run for real you'll need to broadcast. 
+# See forge scripting for more info.
+forge script DeployUUPS
 ```
 
 # Testing

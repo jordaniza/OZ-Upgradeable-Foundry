@@ -4,9 +4,9 @@ pragma solidity 0.8.14;
 import "@std/console.sol";
 import "@std/Script.sol";
 
-import "../src/Upgrade.sol";
+import "../src/UpgradeUUPS.sol";
 
-contract Deploy is Script {
+contract DeployUUPS is Script {
     UUPSProxy proxy;
     MyContract wrappedProxyV1;
     MyContractV2 wrappedProxyV2;
