@@ -1,4 +1,4 @@
-# OpenZepplein Upgradeable Contracts With Foundry
+# OpenZeppelin Upgradeable Contracts With Foundry
 
 An example of writing and testing an Upgradeable smart contract using the OpenZeppelin UUPS Libraries.
 
