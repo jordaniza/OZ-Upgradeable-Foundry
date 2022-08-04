@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.14;
+pragma solidity ^0.8.12;
 
 import "@oz-upgradeable/security/PausableUpgradeable.sol";
 import "@oz-upgradeable/access/OwnableUpgradeable.sol";

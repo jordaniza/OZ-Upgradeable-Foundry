@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-pragma solidity 0.8.14;
+pragma solidity ^0.8.12;
 
 import {PRBTest} from "@prb/test/PRBTest.sol";
 import "@std/console.sol";
@@ -44,5 +44,10 @@ contract _Test is PRBTest {
 
         wrappedProxyV2.setY(200);
         assertEq(wrappedProxyV2.y(), 200);
+    }
+
+    function testOnlyInitializeOnce() public {
+        vm.expectRevert("Initializable: contract is already initialized");
+        wrappedProxyV1.initialize(100);
     }
 }
