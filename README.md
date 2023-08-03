@@ -2,7 +2,7 @@
 
 An example of writing and testing an Upgradeable smart contract using the OpenZeppelin UUPS Libraries.
 
-[Here's a more complete walkthrough](https://piedao.notion.site/Upgradeable-Contracts-with-OZ-e1657f19c569475098a4ebf2a08a5d2b) of upgradeable contracts and Transparent vs. UUPS
+[Here's a more complete walkthrough](https://jordaniza.notion.site/Upgradeable-Contracts-with-OZ-ca888edc83af4e2db2f2a538cc07187a?pvs=4) of upgradeable contracts and Transparent vs. UUPS
 
 # Deploying
 ```sh
